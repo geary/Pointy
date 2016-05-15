@@ -10,8 +10,8 @@ class POINTY_API APointCloudActor : public AActor
 
 public:
 
-	UPROPERTY( EditAnywhere, BlueprintReadWrite, Category = UnitProperties )
-	UParticleSystem* pointiclesSystem;
+	//UPROPERTY( EditAnywhere, BlueprintReadWrite, Category = UnitProperties )
+	UParticleSystem* pointicleSystem;
 	UParticleSystemComponent* pointicles;
 
 	// Sets default values for this actor's properties
