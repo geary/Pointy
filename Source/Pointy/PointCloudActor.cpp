@@ -51,12 +51,29 @@ void APointCloudActor::BeginPlay() {
 	
 	//pointicles->Activate( true );
 
-	SpawnPoint( GetActorLocation() );
+	auto point = GetActorLocation();
+	auto count = 3, distance = 50;
+
+	for( auto iX = 0;  iX < count;  iX++ ) {
+		for( auto iY = 0;  iY < count;  iY++ ) {
+			for( auto iZ = 0;  iZ < count;  iZ++ ) {
+				SpawnXYZ(
+					point.X + iX * distance,
+					point.Y + iY * distance,
+					point.Z + iZ * distance
+				);
+			}
+		}
+	}
 }
 
 // Called every frame
 void APointCloudActor::Tick( float DeltaTime ) {
 	Super::Tick( DeltaTime );
+}
+
+void APointCloudActor::SpawnXYZ( float x, float y, float z ) {
+	SpawnPoint( FVector( x, y, z ) );
 }
 
 void APointCloudActor::SpawnPoint( FVector point ) {

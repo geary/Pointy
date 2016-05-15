@@ -25,6 +25,7 @@ public:
 
 private:
 
+	void SpawnXYZ( float x, float y, float z );
 	void SpawnPoint( FVector point );
 	
 };
