@@ -22,7 +22,7 @@ void APointCloudActor::BeginPlay() {
 	Super::BeginPlay();
 	
 	auto point = GetActorLocation();
-	auto count = 3, distance = 50;
+	auto count = 10, distance = 25;
 
 	for( auto iX = 0;  iX < count;  iX++ ) {
 		for( auto iY = 0;  iY < count;  iY++ ) {
