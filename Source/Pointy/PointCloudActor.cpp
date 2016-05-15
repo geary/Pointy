@@ -29,7 +29,7 @@ APointCloudActor::APointCloudActor() {
 	//pointicles->SetRelativeLocation( FVector(0.0f, 0.0f, 0.0f) );
 
 	//static ConstructorHelpers::FObjectFinder<UParticleSystem> particleAsset( TEXT("/Game/StarterContent/Particles/P_Fire.P_Fire") );
-	static ConstructorHelpers::FObjectFinder<UParticleSystem> particleAsset( TEXT("/Game/P_Fire.P_Fire") );
+	pointiclesSystem = ConstructorHelpers::FObjectFinder<UParticleSystem>( TEXT("/Game/P_Fire.P_Fire") );
 	//static ConstructorHelpers::FObjectFinder<UParticleSystem> particleAsset( TEXT("/Game/StarterContent/Particles/P_Sparks.P_Sparks") );
 	//static ConstructorHelpers::FObjectFinder<UParticleSystem> particleAsset( TEXT("/Game/Pointy.Pointy") );
 	if( particleAsset.Succeeded() ) {
@@ -52,6 +52,8 @@ void APointCloudActor::BeginPlay() {
 	Super::BeginPlay();
 	
 	//pointicles->Activate( true );
+
+	UGameplayStatics::SpawnEmitterAtLocation( GetWorld(), particleAsset, GetActorLocation(), FRotator::ZeroRotator, false );
 }
 
 // Called every frame
