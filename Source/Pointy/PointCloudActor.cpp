@@ -51,12 +51,14 @@ void APointCloudActor::BeginPlay() {
 	
 	//pointicles->Activate( true );
 
-	UGameplayStatics::SpawnEmitterAtLocation( GetWorld(), pointicleSystem, GetActorLocation(), FRotator::ZeroRotator, false );
+	SpawnPoint( GetActorLocation() );
 }
 
 // Called every frame
 void APointCloudActor::Tick( float DeltaTime ) {
 	Super::Tick( DeltaTime );
-
 }
 
+void APointCloudActor::SpawnPoint( FVector point ) {
+	UGameplayStatics::SpawnEmitterAtLocation( GetWorld(), pointicleSystem, point, FRotator::ZeroRotator, false );
+}
