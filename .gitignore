@@ -64,6 +64,3 @@ DerivedDataCache/*
 
 # Starter content
 Content/StarterContent/*
-
-# Ignore .umap for this project since it's a code project
-*.umap
